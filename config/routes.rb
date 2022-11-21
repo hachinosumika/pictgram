@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :topics
+  
+  get 'favotites/index'
+  post '/favotites', to: 'favotites#create'
+  
 end
