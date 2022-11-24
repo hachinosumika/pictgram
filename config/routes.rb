@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :users
   resources :topics
   
-  get 'favotites/index'
-  post '/favotites', to: 'favotites#create'
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
+  delete '/favorites', to: 'favorites#destroy'
+  
+  resources :comments
   
 end
