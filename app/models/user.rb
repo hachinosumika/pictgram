@@ -6,8 +6,12 @@ VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX },
                        length: { in: 8..32 }
   
-  
+    
   has_secure_password
   
+  has_many :topics
+  has_many :favorites
+  has_many :favorite_topics, through: :favorites, source: 'topic'
+  has_many :comments, dependent: :destroy
 end
-
+  
